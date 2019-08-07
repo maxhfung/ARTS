@@ -1,0 +1,189 @@
+/* Root Variables */
+
+:root {
+  --mainColor: #2da9c2;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+
+/* Navigation Bar */
+
+.navbar {
+  overflow: hidden;
+  background-color: #101935;
+  padding: 30px 100px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.navbar .navbar-header {
+  padding-right:40px;
+}
+
+.navbar .navbar-nav > li > a {
+  color: #868d9c;
+  background:
+     linear-gradient(
+       to bottom, var(--mainColor) 0%,
+       var(--mainColor) 100%
+     );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 0px 0px;
+  color: #868d9c;
+  text-decoration: none;
+  transition: background-size .2s;
+}
+
+.navbar .navbar-nav > li > a > active {
+    background-size: 4px 4px;
+}
+
+.navbar .navbar-nav > li > a:hover{
+       background-size: 4px 4px;
+       color: var(--mainColor);
+}       
+
+/* Page Bodies */
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+body {
+  padding: 140px 140px;
+  background: rgb(216,216,216);
+  background: linear-gradient(7deg, rgba(216,216,216,1) 0%, rgba(255,255,255,1) 35%, rgba(202,206,220,1) 100%);
+  background-attachment:fixed;
+}
+
+.section-header {
+  overflow: hidden;
+  
+}
+
+@media (min-width: 768px ) {
+.row {
+    position: relative;
+}
+
+#bottom-align-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.section-contents {
+  overflow: hidden;
+  margin-top:10px;
+  padding-top:30px;
+  margin-bottom:10px;
+  padding-bottom:30px;
+  margin-left:10px;
+  padding-left:40px;
+  margin-right:10px;
+  padding-right:40px;
+  background-color: rgb(255,255,255,0.5);
+  
+}
+
+.section-contents .information{
+  font-size:18px;
+  
+}
+
+.section-contents .information-sm{
+  font-size:14px;
+  
+}
+
+.section-contents .indicator{
+  font-size:18px;
+  font-weight: 600;
+  
+}
+
+.section-contents .indicator-sm{
+  font-size:14px;
+  font-weight: 600;
+  
+}
+
+.section-footer {
+  overflow: hidden;
+  padding-top:20px;
+  padding-left:20px;
+  
+}
+
+h1, h2, h3, h4, h5, p {
+  font-family: 'Titillium Web', sans-serif;
+  color: #456990;
+}
+
+h2, a {
+  color: #456990;
+}
+
+h2, h3, a:hover {
+  color: var(--mainColor);
+}
+
+
+/* Document Overview */
+
+.documents {
+  margin-top:30px;
+  padding-top:10px;
+  margin-bottom:10px;
+  padding-bottom:20px;
+  margin-left:10px;
+  padding-left:20px;
+  margin-right:10px;
+  padding-right:30px;
+  max-width:870px;
+  background:
+     linear-gradient(
+       to bottom, var(--mainColor) 0%,
+       var(--mainColor) 100%
+     );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 0px 0px;
+  text-decoration: none;
+  background-color: rgb(255,255,255,0.3);
+  transition: background-color 0.5s ease;
+  transition: background-size .2s;
+}
+
+.documents:hover {
+  background-color: rgb(255,255,255,0.8);
+  transition: background-color 0.5s ease;
+  transition: background-size .2s;
+  background-size: 4px 6px;
+}
+
+.documents p, h3, h4, h5 {
+   padding-left:20px;
+   font-size:18px;
+   word-wrap: break-word;
+}
+
+.documents h3 {
+   font-size:22px;
+}
+
+.documents p {
+   font-size:16px;
+}
+
+
+/* Footer */
+
+#sticky-footer {
+  flex-shrink: none;
+}
+

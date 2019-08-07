@@ -1,0 +1,63 @@
+<!-- -*- coding: utf-8 -*- -->
+<!DOCTYPE html>
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+    <title>ARTS - GIDEP</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/gidep.css' %}">
+</head>
+    
+<body>
+
+    <!-- ***** Header Area Start ***** -->
+    <nav class="navbar navbar-expand-s navbar-dark navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/"><img src="{% static 'gidep/logo-arts.png' %}" alt="logo"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a class="nav-item nav-link" href="/">HOME</a></li>
+                <li><a class="nav-item nav-link active" href="/gidep">GIDEP</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="nav-item nav-link" href="#"><span class="glyphicon glyphicon-user"></span> USER</a></li>
+              <li><a class="nav-item nav-link" href="#"><span class="glyphicon glyphicon-log-out"></span> SIGN OUT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- ***** Header Area End ***** -->
+    
+    <div class="section-header">
+        <div class="container-fluid">
+            <h1><b>GIDEP Documents</b></h1>
+        </div>
+    </div>
+    
+
+    <!-- ***** Welcome Area Start ***** -->
+    
+    {% for doc in documents %}
+    <a href="{% url 'document_detail' doc.arts_ID %}">
+        <div class="documents">
+            <span class="glyphicon glyphicon-exclamation-sign" style="color: #456990;font-size:24px;position:relative;float:right;top:15px;bottom:0px;right:0px;left:0px;"></span>
+            <h3><a href="{% url 'document_detail' doc.arts_ID %}"><b>{{ doc.document_number }}</b>&nbsp&nbsp|&nbsp&nbsp{{ doc.title }}</span></a></h3>
+            <h4><span style="white-space:nowrap"><span class="glyphicon glyphicon-time" style="font-size:12px;"></span>&nbsp&nbsp{{ doc.arts_date }}</span>&nbsp&nbsp&nbsp&nbsp
+            <span style="white-space:nowrap"><span class="glyphicon glyphicon-user" style="font-size:12px;"></span>&nbsp&nbsp{{ doc.arts_user }}</span></h4>
+            <p style="padding-top:10px;padding-bottom:10px;">{{ doc.abstract|linebreaksbr|truncatechars:350  }}</p>
+            <p><span style="white-space:nowrap"><span class="glyphicon glyphicon-tag" style="font-size:12px;"></span>&nbsp&nbsp{{ doc.arts_type }}, {{doc.arts_subclass}}</span>&nbsp&nbsp&nbsp&nbsp
+            <span style="white-space:nowrap"><a href="{{ doc.attachment.url }}"><span class="glyphicon glyphicon-download-alt" style="font-size:12px;"></span>&nbsp&nbspDownload Attachment</a></span></p>
+        </div>
+    </a>
+    {% endfor %}
+
+</body>
+    
+    
+    
+    

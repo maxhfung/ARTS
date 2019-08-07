@@ -1,0 +1,101 @@
+<!-- -*- coding: utf-8 -*- -->
+<!DOCTYPE html>
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+    <title>ARTS - GIDEP</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/gidep.css' %}">
+</head>
+    
+<body>
+
+    <!-- ***** Header Area Start ***** -->
+    <nav class="navbar navbar-expand-s navbar-dark navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/"><img src="{% static 'gidep/logo-arts.png' %}" alt="logo"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a class="nav-item nav-link" href="/">HOME</a></li>
+                <li><a class="nav-item nav-link active" href="/gidep">GIDEP</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="nav-item nav-link" href="#"><span class="glyphicon glyphicon-user"></span> USER</a></li>
+              <li><a class="nav-item nav-link" href="#"><span class="glyphicon glyphicon-log-out"></span> SIGN OUT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- ***** Header Area End ***** -->
+    
+    <div class="section-header">
+        <div class="container-fluid">
+            <div class="row" style="position:relative">
+                <div class="col-lg-8">
+                    <h1><a href="/gidep"><span class="glyphicon glyphicon-chevron-left" style="font-size:20px;"></span></a><b style="padding-right:20px;">&nbsp&nbsp{{ document.title }}</b>
+                    <span style="font-size:24pt;margin-right:20px;white-space:nowrap;">{{ document.document_number }}</span></h1>
+                </div>
+                <div class="bottom-align-text col-lg-4">
+                    <h1><span style="white-space:nowrap;font-size:18px;"><span class="glyphicon glyphicon-time" style="font-size:12px;"></span>&nbsp&nbsp{{ document.arts_date }}</span>&nbsp&nbsp&nbsp&nbsp
+                    <span style="white-space:nowrap;font-size:18px;"><span class="glyphicon glyphicon-user" style="font-size:12px;"></span>&nbsp&nbsp{{ document.arts_user }}</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-contents">
+        <div class="container-fluid">
+            <div class="row" style="margin-top:20px;margin-bottom:30px;">
+                <div class="col-lg-2"><p class="indicator">ISSUE DATE</p>
+                </div>
+                <div class="col-lg-10"><p class="information">{{ document.document_date  }}</p>
+                </div>
+            </div>
+            <hr/>
+            <div class="row" style="margin-top:50px;">
+                <div class="col-lg-2"><p class="indicator">ABSTRACT</p>
+                </div>
+                <div class="col-lg-10"><p class="information">{{ document.abstract|linebreaksbr  }}</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top:30px;margin-bottom:30px;">
+                <div class="col-lg-2"><p class="indicator">ATTACHMENT</p>
+                </div>
+                <div class="col-lg-10"><p class="information"><a href="{{ doc.attachment.url }}"><span class="glyphicon glyphicon-download-alt" style="font-size:12px;"></span>&nbsp&nbsp{{document.attachment.url}}</a></span></p></p>
+                </div>
+            </div>
+            <hr/>
+            <div class="row" style="margin-top:50px;">
+                <div class="col-lg-2"><p class="indicator-sm">TYPE</p>
+                </div>
+                <div class="col-lg-4"><p class="information-sm">{{ document.arts_type  }}</p>
+                </div>
+                <div class="col-lg-2"><p class="indicator-sm">ARTS ID</p>
+                </div>
+                <div class="col-lg-4"><p class="information-sm">{{ document.arts_ID  }}</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top:20px;">
+                <div class="col-lg-2"><p class="indicator-sm">RESTRICTION LEVEL</p>
+                </div>
+                <div class="col-lg-4"><p class="information-sm">{{ document.distribution_restrictions|title  }}</p>
+                </div>
+                <div class="col-lg-2"><p class="indicator-sm">ALT TRACKING ID</p>
+                </div>
+                <div class="col-lg-4"><p class="information-sm">{{ document.alternate_tracking_number  }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-footer">
+        <p><span style="white-space:nowrap"><span class="glyphicon glyphicon-tag" style="font-size:12px;"></span>&nbsp&nbsp{{ document.arts_type }}, {{document.arts_subclass}}</span>&nbsp&nbsp&nbsp&nbsp
+        <span style="white-space:nowrap"><a href="{{ doc.attachment.url }}"><span class="glyphicon glyphicon-download-alt" style="font-size:12px;"></span>&nbsp&nbspDownload Attachment</a></span></p>
+    </div>
+
+</body>
